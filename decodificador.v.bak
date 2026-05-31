@@ -1,0 +1,17 @@
+module decodificador(
+	input wire[3:0] opcode,
+	
+	//saidas (1 bit para cada instrucao)
+	
+	output wire NOP,
+	output wire STA,
+	output wire LDA,
+	output wire ADD,
+	output wire OR_inst,
+	output wire AND_inst,
+	output wire NOT_inst,
+	output wire JMP,
+	output wire JN,
+	output wire JZ,
+	output wire HLT
+);

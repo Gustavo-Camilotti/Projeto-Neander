@@ -1,0 +1,23 @@
+module flipflops_nz (
+    input  wire clk,
+    input  wire rst,         // reset assincrono
+    input  wire cargaNZ,     // habilita a atualização das flags
+    input  wire N_in,        // Vem da saida flag_N da ULA
+    input  wire Z_in,        // Vem da saida flag_Z da ULA
+    
+    output reg  N_out,       // Vai para a Unidade de Controle e para o LEDG0
+    output reg  Z_out        // Vai para a Unidade de Controle e para o LEDG1
+);
+
+    always @(posedge clk or posedge rst) begin
+        if (rst) begin
+            N_out <= 1'b0;
+            Z_out <= 1'b0;
+        end
+        else if (cargaNZ) begin
+            N_out <= N_in;
+            Z_out <= Z_in;
+        end
+    end
+
+endmodule
